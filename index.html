@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101114">
+    <title>Calculator</title>
+    <link rel="stylesheet" href=".css">
+</head>
+<body>
+    <main class="calculator" aria-label="Calculator">
+        <header class="top-bar">
+            <button class="icon-button menu-button" id="calculator-toggle" type="button" aria-label="Minimize calculator" title="Minimize calculator">↘↖</button>
+            <button class="app-mark" id="future-functions-button" type="button" aria-label="More functions coming soon" title="More functions coming soon">ƒπ<br>e=</button>
+            <button class="icon-button apps-button" id="tools-toggle" type="button" aria-label="Open applications" aria-expanded="false" title="Applications"><span class="app-grid-icon" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></button>
+            <button class="icon-button more-button" type="button" aria-label="More calculator options" title="More options">⋮</button>
+        </header>
+        <aside class="tools-menu" id="tools-menu" aria-label="Unit converter" aria-hidden="true">
+            <div class="tools-heading">
+                <button class="close-button" id="tools-close" type="button" aria-label="Back to calculator">←</button>
+                <h2>Unit converter</h2>
+            </div>
+            <div class="tool-list">
+                <button class="tool-choice" data-tool="currency" type="button"><span>¥</span>Currency</button>
+                <button class="tool-choice" data-tool="length" type="button"><span>▱</span>Length</button>
+                <button class="tool-choice" data-tool="area" type="button"><span>▧</span>Area</button>
+                <button class="tool-choice" data-tool="volume" type="button"><span>◇</span>Volume</button>
+                <button class="tool-choice" data-tool="weight" type="button"><span>⚖</span>Weight</button>
+                <button class="tool-choice" data-tool="temperature" type="button"><span>♨</span>Temperature</button>
+                <button class="tool-choice" data-tool="speed" type="button"><span>◉</span>Speed</button>
+                <button class="tool-choice" data-tool="pressure" type="button"><span>◌</span>Pressure</button>
+                <button class="tool-choice" data-tool="power" type="button"><span>ϟ</span>Power</button>
+                <button class="tool-choice" data-tool="number" type="button"><span>01</span>Number system</button>
+                <button class="tool-choice" data-tool="calculator" type="button"><span>=</span>Calculator</button>
+            </div>
+            <section class="tool-detail" id="tool-detail" hidden aria-live="polite">
+                <div class="tool-detail-heading">
+                    <button class="detail-back" id="detail-back" type="button" aria-label="Back to unit converter">←</button>
+                    <h3 id="detail-title">Converter</h3>
+                </div>
+                <label id="detail-input-label">Value <input id="detail-value" type="number" step="any" placeholder="0"></label>
+                <label id="unit-from-label" hidden>From
+                    <select id="unit-from"></select>
+                </label>
+                <label id="unit-to-label" hidden>Convert to
+                    <select id="unit-to"></select>
+                </label>
+                <button class="tool-calculate" id="detail-calculate" type="button">Convert</button>
+                <output class="tool-result" id="detail-result">Enter a value</output>
+                <div class="tool-keypad" id="tool-keypad" aria-label="Tool keypad">
+                    <button class="function" data-tool-key="clear" type="button">AC</button>
+                    <button class="function" data-tool-key="backspace" type="button" aria-label="Delete last character">⌫</button>
+                    <button data-tool-key="7" type="button">7</button>
+                    <button data-tool-key="8" type="button">8</button>
+                    <button data-tool-key="9" type="button">9</button>
+                    <button data-tool-key="4" type="button">4</button>
+                    <button data-tool-key="5" type="button">5</button>
+                    <button data-tool-key="6" type="button">6</button>
+                    <button data-tool-key="1" type="button">1</button>
+                    <button data-tool-key="2" type="button">2</button>
+                    <button data-tool-key="3" type="button">3</button>
+                    <button data-tool-key="0" type="button">0</button>
+                    <button data-tool-key="." type="button" aria-label="Decimal point">.</button>
+                </div>
+            </section>
+        </aside>
+        <section class="display-panel" aria-live="polite">
+            <div class="expression" id="expression" aria-label="Current expression"></div>
+            <output class="display" id="display" aria-label="Calculator result">0</output>
+        </section>
+        <div class="btns" aria-label="Calculator keypad">
+            <button class="function" data-action="clear" type="button">AC</button>
+            <button class="function" data-action="percent" type="button">%</button>
+            <button class="function" data-action="backspace" type="button" aria-label="Delete last character">⌫</button>
+            <button class="operator" data-value="/" type="button" aria-label="Divide">÷</button>
+            <button data-value="7" type="button">7</button>
+            <button data-value="8" type="button">8</button>
+            <button data-value="9" type="button">9</button>
+            <button class="operator" data-value="*" type="button" aria-label="Multiply">×</button>
+            <button data-value="4" type="button">4</button>
+            <button data-value="5" type="button">5</button>
+            <button data-value="6" type="button">6</button>
+            <button class="operator" data-value="-" type="button" aria-label="Subtract">−</button>
+            <button data-value="1" type="button">1</button>
+            <button data-value="2" type="button">2</button>
+            <button data-value="3" type="button">3</button>
+            <button class="operator" data-value="+" type="button" aria-label="Add">+</button>
+            <button data-value="0" type="button">00</button>
+            <button data-value="0" type="button">0</button>
+            <button data-value="." type="button" aria-label="Decimal point">.</button>
+            <button class="equals" data-action="calculate" type="button" aria-label="Equals">=</button>
+        </div>
+        <p class="hint">Calculator</p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
